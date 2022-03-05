@@ -21,7 +21,7 @@ export const clearCanvas = (canvasEl: HTMLCanvasElement) => {
   canvasCtx.fillRect(0, 0, canvasWidth, canvasHeight);
 }
 
-export const drawFloats = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) => {
+export const drawFloats = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array, length?: number) => {
   const canvasWidth = canvasEl.width;
   const canvasHeight = canvasEl.height;
   const canvasCtx = canvasEl.getContext("2d");
@@ -40,7 +40,7 @@ export const drawFloats = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) =
     floats[index] = Math.max(floats[index], FLOAT_HEIGHT);
   })
 
-  const barWidth = (canvasWidth / dataArray.length) * 2.5
+  const barWidth = canvasWidth / (length || dataArray.length);
   let x = 0;
 
   for (let i = 0; i < floats.length; i++) {
@@ -53,7 +53,7 @@ export const drawFloats = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) =
   }
 }
 
-export const drawCanvas = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) => {
+export const drawCanvas = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array, length ?: number) => {
   const canvasWidth = canvasEl.width;
   const canvasHeight = canvasEl.height;
   const canvasCtx = canvasEl.getContext("2d");
@@ -62,7 +62,7 @@ export const drawCanvas = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) =
     return;
   }
 
-  const barWidth = (canvasWidth / dataArray.length) * 2.5
+  const barWidth = canvasWidth / (length || dataArray.length)
   let x = 0;
 
   for (let i = 0; i < dataArray.length; i++) {
