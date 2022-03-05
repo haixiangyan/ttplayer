@@ -6,6 +6,8 @@ const PUSH_HEIGHT = 10;
 const FLOAT_HEIGHT = 4;
 // 下落高度
 const DROP_DISTANCE = 1;
+// Bar 的 border 宽度
+const BORDER_WIDTH = 1;
 
 export const clearCanvas = (canvasEl: HTMLCanvasElement) => {
   const canvasWidth = canvasEl.width;
@@ -17,7 +19,7 @@ export const clearCanvas = (canvasEl: HTMLCanvasElement) => {
   }
 
   // 绘制图形
-  canvasCtx.fillStyle = 'rgb(200, 200, 200)';
+  canvasCtx.fillStyle = 'rgb(29,19,62)';
   canvasCtx.fillRect(0, 0, canvasWidth, canvasHeight);
 }
 
@@ -46,10 +48,10 @@ export const drawFloats = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) =
   for (let i = 0; i < floats.length; i++) {
     const floatHeight = floats[i];
 
-    canvasCtx.fillStyle = 'red';
+    canvasCtx.fillStyle = '#3e47a0';
     canvasCtx.fillRect(x, canvasHeight - floatHeight, barWidth, FLOAT_HEIGHT);
 
-    x += barWidth + 1;
+    x += barWidth + BORDER_WIDTH;
   }
 }
 
@@ -68,9 +70,16 @@ export const drawBars = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) => 
   for (let i = 0; i < dataArray.length; i++) {
     const barHeight = dataArray[i];
 
-    canvasCtx.fillStyle = 'rgb(' + (barHeight + 100) + ',255,255)';
+    // 添加渐变色
+    const gradient = canvasCtx.createLinearGradient(canvasWidth / 2, canvasHeight / 3, canvasWidth / 2, canvasHeight);
+    gradient.addColorStop(0, '#69b5ee');
+    gradient.addColorStop(0.5, '#4c60cb');
+    gradient.addColorStop(1, '#69b5ee');
+
+    // 画 bar
+    canvasCtx.fillStyle = gradient;
     canvasCtx.fillRect(x, canvasHeight - barHeight, barWidth, barHeight);
 
-    x += barWidth + 1;
+    x += barWidth + BORDER_WIDTH;
   }
 }

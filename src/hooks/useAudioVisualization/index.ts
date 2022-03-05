@@ -1,7 +1,7 @@
 import {useRef} from "react";
 import {clearCanvas, drawBars, drawFloats} from "./drawUtils";
 
-const useAudioVisualization = (selector: string, length = 40) => {
+const useAudioVisualization = (selector: string, length = 50) => {
   const audioCtxRef = useRef<AudioContext>();
   const analyserRef = useRef<AnalyserNode>();
 
