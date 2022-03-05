@@ -1,5 +1,5 @@
 import {useRef} from "react";
-import {clearCanvas, drawCanvas, drawFloats} from "./drawUtils";
+import {clearCanvas, drawBars, drawFloats} from "./drawUtils";
 
 const useAudioVisualization = (selector: string, length = 40) => {
   const audioCtxRef = useRef<AudioContext>();
@@ -13,10 +13,12 @@ const useAudioVisualization = (selector: string, length = 40) => {
     if (analyserRef.current) {
       // 读取数据
       analyserRef.current.getByteFrequencyData(dataArray);
+      // 更新长度
+      const bars = dataArray.slice(0, Math.min(length, dataArray.length));
       // 画图
       clearCanvas(canvasEl);
-      drawCanvas(canvasEl, dataArray, length);
-      drawFloats(canvasEl, dataArray, length);
+      drawBars(canvasEl, bars);
+      drawFloats(canvasEl, bars);
     }
   }
 
