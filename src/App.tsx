@@ -4,7 +4,7 @@ import useAudioVisualization from "./hooks/useAudioVisualization";
 import styles from './styles.module.scss';
 
 const App: FC = () => {
-  const {visualize, clearCanvas} = useAudioVisualization('#canvas', 50);
+  const {visualize, stopVisualize, clearCanvas} = useAudioVisualization('#canvas', 50);
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -14,6 +14,10 @@ const App: FC = () => {
       const stream = (audioRef.current as any).captureStream();
       visualize(stream)
     }
+  }
+
+  const onPause = async () => {
+    stopVisualize();
   }
 
   useEffect(() => {
@@ -27,7 +31,7 @@ const App: FC = () => {
           <canvas id="canvas" width={400} height={160}/>
         </div>
         <div className={styles.audio}>
-          <audio ref={audioRef} src={audioUrl} onPlay={onPlay} controls />
+          <audio ref={audioRef} src={audioUrl} onPlay={onPlay} onPause={onPause} controls />
         </div>
       </div>
     </div>

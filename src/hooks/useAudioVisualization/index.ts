@@ -4,11 +4,12 @@ import {clearCanvas, drawBars, drawFloats} from "./drawUtils";
 const useAudioVisualization = (selector: string, length = 50) => {
   const audioCtxRef = useRef<AudioContext>();
   const analyserRef = useRef<AnalyserNode>();
+  const requestAnimateFrameIdRef = useRef<number>();
 
   // 每个动画帧都画图
   const drawEachFrame = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) => {
     // 递归调用
-    requestAnimationFrame(() => drawEachFrame(canvasEl, dataArray));
+    requestAnimateFrameIdRef.current = requestAnimationFrame(() => drawEachFrame(canvasEl, dataArray));
 
     if (analyserRef.current) {
       // 读取数据
@@ -47,7 +48,18 @@ const useAudioVisualization = (selector: string, length = 50) => {
     drawEachFrame(canvasEl, dataArray);
   }
 
-  return { visualize, clearCanvas }
+  const stopVisualize = () => {
+    if (requestAnimateFrameIdRef.current) {
+      window.cancelAnimationFrame(requestAnimateFrameIdRef.current);
+    }
+  };
+
+  return {
+    visualize,
+    stopVisualize,
+    clearCanvas,
+    requestAnimateFrameId: requestAnimateFrameIdRef.current
+  };
 }
 
 export default useAudioVisualization;
