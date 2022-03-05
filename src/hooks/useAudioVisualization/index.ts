@@ -52,7 +52,7 @@ const useAudioVisualization = (selector: string, length = 50) => {
   const resetCanvas = () => {
     const canvasEl: HTMLCanvasElement | null = document.querySelector(selector);
     if (canvasEl) {
-      const emptyDataArray = (new Uint8Array(length)).map(() => 4);
+      const emptyDataArray = (new Uint8Array(length)).map(() => 0);
       utilsClearCanvas(canvasEl);
       drawFloats(canvasEl, emptyDataArray);
     }
