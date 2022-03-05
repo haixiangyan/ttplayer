@@ -9,7 +9,7 @@ const DROP_DISTANCE = 1;
 // Bar 的 border 宽度
 const BORDER_WIDTH = 1;
 // 高度比例
-const HEIGHT_RATIO = 0.6;
+const HEIGHT_RATIO = 1;
 
 export const clearCanvas = (canvasEl: HTMLCanvasElement) => {
   const canvasWidth = canvasEl.width;

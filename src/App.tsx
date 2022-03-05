@@ -28,10 +28,16 @@ const App: FC = () => {
     <div className={styles.app}>
       <div className={styles.main}>
         <div className={styles.canvas}>
-          <canvas id="canvas" width={400} height={160}/>
+          <canvas id="canvas" width={500} height={300}/>
         </div>
-        <div className={styles.audio}>
+        <div className={styles.controls}>
           <audio ref={audioRef} src={audioUrl} onPlay={onPlay} onPause={onPause} controls />
+        </div>
+        <div className={styles.uploader}>
+          <label>
+            <span>上传你的音频</span>
+            <input type="file"/>
+          </label>
         </div>
       </div>
     </div>
