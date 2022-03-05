@@ -41,7 +41,7 @@ export const drawFloats = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) =
     // 处理当前值
     floats[index] = item > floats[index] ? item + FLOAT_HEIGHT + PUSH_HEIGHT : floats[index] - DROP_DISTANCE;
     // 保底
-    floats[index] = Math.max(floats[index], FLOAT_HEIGHT);
+    floats[index] = Math.max(floats[index], item, FLOAT_HEIGHT);
   })
 
   const barWidth = canvasWidth / dataArray.length;
@@ -75,7 +75,7 @@ export const drawBars = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) => 
     // 添加渐变色
     const gradient = canvasCtx.createLinearGradient(canvasWidth / 2, canvasHeight / 3, canvasWidth / 2, canvasHeight);
     gradient.addColorStop(0, '#5cb7ff');
-    gradient.addColorStop(0.5, '#4c60cb');
+    gradient.addColorStop(0.5, '#4b5fc9');
     gradient.addColorStop(1, '#5cb7ff');
 
     // 画 bar
