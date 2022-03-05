@@ -7,16 +7,15 @@ const App: FC = () => {
   const {visualize, stopVisualize, resetCanvas, clearCanvas} = useAudioVisualization('#canvas', 50);
 
   const [newAudio, setNewAudio] = useState<string>('');
-  const [isStart, setIsStart] = useState<boolean>(false);
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const onPlay = async () => {
-    if (audioRef.current && !isStart) {
+    if (audioRef.current) {
+      resetCanvas();
       await audioRef.current.play();
       const stream = (audioRef.current as any).captureStream();
       visualize(stream)
-      setIsStart(true);
     }
   }
 
