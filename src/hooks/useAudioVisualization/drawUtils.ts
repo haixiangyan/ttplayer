@@ -73,10 +73,10 @@ export const drawBars = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) => 
     const barHeight = dataArray[i] * HEIGHT_RATIO;
 
     // 添加渐变色
-    const gradient = canvasCtx.createLinearGradient(canvasWidth / 2, canvasHeight / 3, canvasWidth / 2, canvasHeight);
-    gradient.addColorStop(0, '#5cb7ff');
+    const gradient = canvasCtx.createLinearGradient(canvasWidth / 2, canvasHeight / 2, canvasWidth / 2, canvasHeight);
+    gradient.addColorStop(0, '#68b3ec');
     gradient.addColorStop(0.5, '#4b5fc9');
-    gradient.addColorStop(1, '#5cb7ff');
+    gradient.addColorStop(1, '#68b3ec');
 
     // 画 bar
     canvasCtx.fillStyle = gradient;
