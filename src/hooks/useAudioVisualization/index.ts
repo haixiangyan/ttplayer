@@ -47,7 +47,7 @@ const useAudioVisualization = (selector: string, length = 50) => {
     drawEachFrame(canvasEl, dataArray);
   }
 
-  return { visualize }
+  return { visualize, clearCanvas }
 }
 
 export default useAudioVisualization;

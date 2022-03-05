@@ -8,6 +8,8 @@ const FLOAT_HEIGHT = 4;
 const DROP_DISTANCE = 1;
 // Bar 的 border 宽度
 const BORDER_WIDTH = 1;
+// 高度比例
+const HEIGHT_RATIO = 0.6;
 
 export const clearCanvas = (canvasEl: HTMLCanvasElement) => {
   const canvasWidth = canvasEl.width;
@@ -46,7 +48,7 @@ export const drawFloats = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) =
   let x = 0;
 
   for (let i = 0; i < floats.length; i++) {
-    const floatHeight = floats[i];
+    const floatHeight = floats[i] * HEIGHT_RATIO;
 
     canvasCtx.fillStyle = '#3e47a0';
     canvasCtx.fillRect(x, canvasHeight - floatHeight, barWidth, FLOAT_HEIGHT);
@@ -68,13 +70,13 @@ export const drawBars = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) => 
   let x = 0;
 
   for (let i = 0; i < dataArray.length; i++) {
-    const barHeight = dataArray[i];
+    const barHeight = dataArray[i] * HEIGHT_RATIO;
 
     // 添加渐变色
     const gradient = canvasCtx.createLinearGradient(canvasWidth / 2, canvasHeight / 3, canvasWidth / 2, canvasHeight);
-    gradient.addColorStop(0, '#69b5ee');
+    gradient.addColorStop(0, '#5cb7ff');
     gradient.addColorStop(0.5, '#4c60cb');
-    gradient.addColorStop(1, '#69b5ee');
+    gradient.addColorStop(1, '#5cb7ff');
 
     // 画 bar
     canvasCtx.fillStyle = gradient;
