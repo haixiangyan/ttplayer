@@ -12,7 +12,7 @@ const App: FC = () => {
 
   const onPlay = async () => {
     if (audioRef.current) {
-      resetCanvas();
+      stopVisualize();
       await audioRef.current.play();
       const stream = (audioRef.current as any).captureStream();
       visualize(stream)
