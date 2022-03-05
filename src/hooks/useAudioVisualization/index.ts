@@ -1,5 +1,5 @@
 import {useRef} from "react";
-import {clearCanvas, drawBars, drawFloats} from "./drawUtils";
+import {clearCanvas as utilsClearCanvas, drawBars, drawFloats} from "./drawUtils";
 
 const useAudioVisualization = (selector: string, length = 50) => {
   const audioCtxRef = useRef<AudioContext>();
@@ -17,7 +17,7 @@ const useAudioVisualization = (selector: string, length = 50) => {
       // 更新长度
       const bars = dataArray.slice(0, Math.min(length, dataArray.length));
       // 画图
-      clearCanvas(canvasEl);
+      utilsClearCanvas(canvasEl);
       drawBars(canvasEl, bars);
       drawFloats(canvasEl, bars);
     }
@@ -48,15 +48,34 @@ const useAudioVisualization = (selector: string, length = 50) => {
     drawEachFrame(canvasEl, dataArray);
   }
 
+  // 重置 canvas
+  const resetCanvas = () => {
+    const canvasEl: HTMLCanvasElement | null = document.querySelector(selector);
+    if (canvasEl) {
+      const emptyDataArray = (new Uint8Array(length)).map(() => 4);
+      drawFloats(canvasEl, emptyDataArray);
+    }
+  }
+
+  const clearCanvas = () => {
+    const canvasEl: HTMLCanvasElement | null = document.querySelector(selector);
+    if (canvasEl) {
+      utilsClearCanvas(canvasEl);
+    }
+  }
+
+  // 停止
   const stopVisualize = () => {
     if (requestAnimateFrameIdRef.current) {
       window.cancelAnimationFrame(requestAnimateFrameIdRef.current);
+      resetCanvas();
     }
   };
 
   return {
     visualize,
     stopVisualize,
+    resetCanvas,
     clearCanvas,
     requestAnimateFrameId: requestAnimateFrameIdRef.current
   };

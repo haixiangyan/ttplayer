@@ -4,33 +4,39 @@ import useAudioVisualization from "./hooks/useAudioVisualization";
 import styles from './styles.module.scss';
 
 const App: FC = () => {
-  const {visualize, stopVisualize, clearCanvas} = useAudioVisualization('#canvas', 50);
+  const {visualize, stopVisualize, resetCanvas, clearCanvas} = useAudioVisualization('#canvas', 50);
 
-  const [newAudioUrl, setNewAudioUrl] = useState<string>('');
+  const [newAudio, setNewAudio] = useState<string>('');
+  const [isStart, setIsStart] = useState<boolean>(false);
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const onPlay = async () => {
-    if (audioRef.current) {
+    if (audioRef.current && !isStart) {
       await audioRef.current.play();
       const stream = (audioRef.current as any).captureStream();
       visualize(stream)
+      setIsStart(true);
     }
   }
 
   const onPause = async () => {
-    stopVisualize();
+    resetCanvas();
   }
 
   const onUpload: ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.files) {
       const blobUrl = URL.createObjectURL(e.target.files[0]);
-      setNewAudioUrl(blobUrl);
+      setNewAudio(blobUrl);
     }
   };
 
   useEffect(() => {
-    clearCanvas(document.querySelector('#canvas') as HTMLCanvasElement)
+    clearCanvas()
+    resetCanvas();
+    return () => {
+      stopVisualize()
+    }
   }, []);
 
   return (
@@ -40,7 +46,7 @@ const App: FC = () => {
           <canvas id="canvas" width={500} height={300}/>
         </div>
         <div className={styles.controls}>
-          <audio ref={audioRef} src={newAudioUrl || audioUrl} onPlay={onPlay} onPause={onPause} controls />
+          <audio ref={audioRef} src={newAudio || audioUrl} onPlay={onPlay} onPause={onPause} controls />
         </div>
         <div className={styles.uploader}>
           <label>
