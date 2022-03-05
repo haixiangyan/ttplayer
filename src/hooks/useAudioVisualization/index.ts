@@ -1,7 +1,7 @@
 import {useRef} from "react";
-import {drawCanvas} from "./drawUtils";
+import {clearCanvas, drawCanvas, drawFloats} from "./drawUtils";
 
-const useAudioVisualization = (selector: string) => {
+const useAudioVisualization = (selector: string, maxLength = 128) => {
   const audioCtxRef = useRef<AudioContext>();
   const analyserRef = useRef<AnalyserNode>();
 
@@ -14,7 +14,9 @@ const useAudioVisualization = (selector: string) => {
       // 读取数据
       analyserRef.current.getByteFrequencyData(dataArray);
       // 画图
+      clearCanvas(canvasEl);
       drawCanvas(canvasEl, dataArray);
+      drawFloats(canvasEl, dataArray);
     }
   }
 
