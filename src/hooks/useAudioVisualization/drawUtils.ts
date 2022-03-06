@@ -41,7 +41,7 @@ export const drawFloats = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) =
     // 处理当前值
     const pushHeight = item + FLOAT_HEIGHT + PUSH_HEIGHT;
     const dropHeight = floats[index] - DROP_DISTANCE;
-    floats[index] = item > floats[index] ? pushHeight : dropHeight;
+    floats[index] = item > dropHeight ? pushHeight : dropHeight;
     // 保底
     floats[index] = Math.max(floats[index], item, FLOAT_HEIGHT);
   })

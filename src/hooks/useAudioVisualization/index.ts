@@ -18,8 +18,8 @@ const useAudioVisualization = (selector: string, length = 50) => {
       const bars = dataArray.slice(0, Math.min(length, dataArray.length));
       // 画图
       utilsClearCanvas(canvasEl);
-      drawBars(canvasEl, bars);
       drawFloats(canvasEl, bars);
+      drawBars(canvasEl, bars);
     }
   }
 
