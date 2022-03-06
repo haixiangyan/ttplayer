@@ -1,12 +1,14 @@
 import React, {ChangeEventHandler, FC, useEffect, useRef, useState} from 'react';
-import audioUrl from "./assets/test.flac";
+import audioUrl from "./assets/dukou.flac";
 import useAudioVisualization from "./hooks/useAudioVisualization";
 import styles from './styles.module.scss';
+import {defaultPlayList, PlayListItem} from "./constants";
 
 const App: FC = () => {
   const {visualize, stopVisualize, resetCanvas, clearCanvas} = useAudioVisualization('#canvas', 50);
 
   const [newAudio, setNewAudio] = useState<string>('');
+  const [playList, setPlayList] = useState<PlayListItem[]>(defaultPlayList);
 
   const audioRef = useRef<HTMLAudioElement>(null);
 
@@ -47,9 +49,19 @@ const App: FC = () => {
         <div className={styles.controls}>
           <audio ref={audioRef} src={newAudio || audioUrl} onPlay={onPlay} onPause={onPause} controls />
         </div>
+      </div>
+
+      <div className={styles.playList}>
+        <ul className={styles.list}>
+          {playList.map((audio, index) => (
+            <li key={audio.url}>
+              {index + 1}. {audio.name}
+            </li>
+          ))}
+        </ul>
         <div className={styles.uploader}>
           <label>
-            <span>上传你的音频</span>
+            <span>添加</span>
             <input type="file" onChange={onUpload} accept="audio/*"/>
           </label>
         </div>

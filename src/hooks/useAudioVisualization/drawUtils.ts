@@ -1,7 +1,7 @@
 // 浮动的小块
 let floats: any = [];
 // 推的高度
-const PUSH_HEIGHT = 10;
+const PUSH_HEIGHT = 0;
 // 高度
 const FLOAT_HEIGHT = 4;
 // 下落高度
