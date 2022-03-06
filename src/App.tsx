@@ -1,5 +1,4 @@
 import React, {ChangeEventHandler, FC, useEffect, useRef, useState} from 'react';
-import audioUrl from "./assets/dukou.flac";
 import useAudioVisualization from "./hooks/useAudioVisualization";
 import styles from './styles.module.scss';
 import {defaultPlayList, PlayListItem} from "./constants";
@@ -7,7 +6,7 @@ import {defaultPlayList, PlayListItem} from "./constants";
 const App: FC = () => {
   const {visualize, stopVisualize, resetCanvas, clearCanvas} = useAudioVisualization('#canvas', 50);
 
-  const [newAudio, setNewAudio] = useState<string>('');
+  const [audioUrl, setAudioUrl] = useState<string>(defaultPlayList[0].url);
   const [playList, setPlayList] = useState<PlayListItem[]>(defaultPlayList);
 
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -27,8 +26,11 @@ const App: FC = () => {
 
   const onUpload: ChangeEventHandler<HTMLInputElement> = (e) => {
     if (e.target.files) {
-      const blobUrl = URL.createObjectURL(e.target.files[0]);
-      setNewAudio(blobUrl);
+      const [file] = e.target.files;
+      const blobUrl = URL.createObjectURL(file);
+      const [filename] = file.name.split('.');
+      setAudioUrl(blobUrl);
+      setPlayList([...playList, { name: filename, url: blobUrl }])
     }
   };
 
@@ -47,14 +49,14 @@ const App: FC = () => {
           <canvas id="canvas" width={500} height={300}/>
         </div>
         <div className={styles.controls}>
-          <audio ref={audioRef} src={newAudio || audioUrl} onPlay={onPlay} onPause={onPause} controls />
+          <audio ref={audioRef} src={audioUrl} onPlay={onPlay} onPause={onPause} controls />
         </div>
       </div>
 
       <div className={styles.playList}>
         <ul className={styles.list}>
           {playList.map((audio, index) => (
-            <li key={audio.url}>
+            <li key={audio.url} className={audioUrl === audio.url ? styles.active : undefined} onClick={() => setAudioUrl(audio.url)}>
               {index + 1}. {audio.name}
             </li>
           ))}
