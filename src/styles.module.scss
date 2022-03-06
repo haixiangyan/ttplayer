@@ -45,57 +45,65 @@ body {
   }
 
   .playList {
+    margin-left: 16px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: 16px;
-    border-radius: 6px;
-    border: 2px solid #666895;
-    background: #2a2a3e;
-    overflow: hidden;
 
-    .list {
+    .listWrapper {
       flex: 1;
-      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow: hidden;
+      border-radius: 6px;
+      padding-top: 2px;
+      border: 2px solid #666895;
+      background: #2a2a3e;
 
-      li {
-        width: 250px;
-        padding: 4px;
-        color: #666895;
-        border: 1px solid transparent;
-        border-bottom: 1px solid #666895;
-        margin-bottom: 1px;
-        list-style: none;
-        cursor: pointer;
+      .list {
+        flex: 1;
+        overflow: auto;
 
-        &:hover {
-          border: 1px solid white;
-          color: white;
-        }
+        li {
+          width: 250px;
+          padding: 4px;
+          color: #666895;
+          border: 1px solid transparent;
+          border-bottom: 1px solid #666895;
+          margin-bottom: 1px;
+          list-style: none;
+          cursor: pointer;
 
-        &.active {
-          color: white;
-          border: 1px solid white;
+          &:hover {
+            border: 1px solid white;
+            color: white;
+          }
+
+          &.active {
+            color: white;
+            border: 1px solid white;
+          }
         }
       }
-    }
 
-    .uploader {
-      text-align: right;
+      .uploader {
+        text-align: right;
 
-      label {
-        padding: 8px 0;
-        width: 100%;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        border-top: 2px solid #666895;
-        cursor: pointer;
-        background: #2a2a3e;
+        label {
+          padding: 8px 0;
+          width: 100%;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          color: white;
+          border-top: 2px solid #666895;
+          cursor: pointer;
+          background: #2a2a3e;
 
-        input {
-          display: none;
+          input {
+            display: none;
+          }
         }
       }
     }
