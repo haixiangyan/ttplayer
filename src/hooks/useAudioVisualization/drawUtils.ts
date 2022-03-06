@@ -48,14 +48,14 @@ export const drawFloats = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) =
   const barWidth = canvasWidth / dataArray.length;
   let x = 0;
 
-  for (let i = 0; i < floats.length; i++) {
-    const floatHeight = floats[i] * HEIGHT_RATIO;
+  floats.forEach((floatItem: number) => {
+    const floatHeight = floatItem * HEIGHT_RATIO;
 
     canvasCtx.fillStyle = '#3e47a0';
     canvasCtx.fillRect(x, canvasHeight - floatHeight, barWidth, FLOAT_HEIGHT);
 
     x += barWidth + BORDER_WIDTH;
-  }
+  })
 }
 
 export const drawBars = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) => {
@@ -70,8 +70,8 @@ export const drawBars = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) => 
   const barWidth = canvasWidth / dataArray.length
   let x = 0;
 
-  for (let i = 0; i < dataArray.length; i++) {
-    const barHeight = dataArray[i] * HEIGHT_RATIO;
+  dataArray.forEach((dataItem) => {
+    const barHeight = dataItem * HEIGHT_RATIO;
 
     // 添加渐变色
     const gradient = canvasCtx.createLinearGradient(canvasWidth / 2, canvasHeight / 2, canvasWidth / 2, canvasHeight);
@@ -84,5 +84,5 @@ export const drawBars = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) => 
     canvasCtx.fillRect(x, canvasHeight - barHeight, barWidth, barHeight);
 
     x += barWidth + BORDER_WIDTH;
-  }
+  })
 }
