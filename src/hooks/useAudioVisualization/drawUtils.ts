@@ -11,6 +11,8 @@ const BORDER_WIDTH = 1;
 // 高度比例
 const HEIGHT_RATIO = 1;
 
+export const clearFloats = () => floats = [];
+
 export const clearCanvas = (canvasEl: HTMLCanvasElement) => {
   const canvasWidth = canvasEl.width;
   const canvasHeight = canvasEl.height;
