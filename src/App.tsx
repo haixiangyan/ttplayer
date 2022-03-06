@@ -3,6 +3,8 @@ import useAudioVisualization from "./hooks/useAudioVisualization";
 import styles from './styles.module.scss';
 import {defaultPlayList, PlayListItem} from "./constants";
 import Header from "./components/Header";
+import Player from "./components/Player";
+import PlayList from "./components/PlayList";
 
 const App: FC = () => {
   const {visualize, stopVisualize, resetCanvas, clearCanvas} = useAudioVisualization('#canvas', 50);
@@ -45,33 +47,14 @@ const App: FC = () => {
 
   return (
     <div className={styles.app}>
-      <div className={styles.main}>
+      <div className={styles.playerWrapper}>
         <Header>正在播放：{curtAudio.name}</Header>
-        <div className={styles.canvas}>
-          <canvas id="canvas" width={500} height={300}/>
-        </div>
-        <div className={styles.controls}>
-          <audio ref={audioRef} src={curtAudio.url} onPlay={onPlay} onPause={onPause} controls />
-        </div>
+        <Player ref={audioRef} onPlay={onPlay} onPause={onPause} playItem={curtAudio} />
       </div>
 
-      <div className={styles.playList}>
+      <div className={styles.playListWrapper}>
         <Header>播放列表</Header>
-        <div className={styles.listWrapper}>
-          <ul className={styles.list}>
-            {playList.map((audio, index) => (
-              <li key={audio.url} className={curtAudio.url === audio.url ? styles.active : undefined} onClick={() => setCurtAudio(audio)}>
-                {index + 1}. {audio.name}
-              </li>
-            ))}
-          </ul>
-          <div className={styles.uploader}>
-            <label>
-              <span>添加</span>
-              <input type="file" onChange={onUpload} accept="audio/*"/>
-            </label>
-          </div>
-        </div>
+        <PlayList playList={playList} playItem={curtAudio} onUpload={onUpload} setPlayItem={setCurtAudio} />
       </div>
     </div>
   )
