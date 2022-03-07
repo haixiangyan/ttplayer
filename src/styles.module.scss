@@ -13,6 +13,10 @@ body {
   background: black;
 }
 
+audio::-webkit-media-controls-panel {
+  background: white;
+}
+
 .app {
   display: flex;
   padding: 16px;
