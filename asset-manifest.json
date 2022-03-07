@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/ttplayer/static/css/main.5410d44b.css",
+    "main.js": "/ttplayer/static/js/main.8a8f5fcc.js",
+    "static/media/new-thang.flac": "/ttplayer/static/media/new-thang.25a5f79376e0d93bcdd2.flac",
+    "static/media/guyongzhe.flac": "/ttplayer/static/media/guyongzhe.cb42cb7f327fab7dcc38.flac",
+    "static/media/zheshijienameduoren.flac": "/ttplayer/static/media/zheshijienameduoren.c02db09660b4f29b06b2.flac",
+    "static/media/dukou.flac": "/ttplayer/static/media/dukou.912f161b068ec6db15fb.flac",
+    "index.html": "/ttplayer/index.html",
+    "main.5410d44b.css.map": "/ttplayer/static/css/main.5410d44b.css.map",
+    "main.8a8f5fcc.js.map": "/ttplayer/static/js/main.8a8f5fcc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5410d44b.css",
+    "static/js/main.8a8f5fcc.js"
+  ]
+}
