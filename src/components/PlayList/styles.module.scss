@@ -24,12 +24,14 @@
       cursor: pointer;
 
       &:hover {
+        background: #5f6282;
         border: 1px solid white;
         color: #e6e7ea;
       }
 
       &.active {
         color: #e6e7ea;
+        background: #5f6282;
         border: 1px solid white;
       }
     }

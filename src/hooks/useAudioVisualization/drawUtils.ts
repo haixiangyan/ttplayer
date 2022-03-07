@@ -7,7 +7,7 @@ const FLOAT_HEIGHT = 4;
 // 下落高度
 const DROP_DISTANCE = 1;
 // Bar 的 border 宽度
-const BORDER_WIDTH = 1;
+const BAR_GAP = 2;
 // 高度比例
 const HEIGHT_RATIO = 1;
 
@@ -56,7 +56,7 @@ export const drawFloats = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) =
     canvasCtx.fillStyle = '#3e47a0';
     canvasCtx.fillRect(x, canvasHeight - floatHeight, barWidth, FLOAT_HEIGHT);
 
-    x += barWidth + BORDER_WIDTH;
+    x += barWidth + BAR_GAP;
   })
 }
 
@@ -85,6 +85,6 @@ export const drawBars = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) => 
     canvasCtx.fillStyle = gradient;
     canvasCtx.fillRect(x, canvasHeight - barHeight, barWidth, barHeight);
 
-    x += barWidth + BORDER_WIDTH;
+    x += barWidth + BAR_GAP;
   })
 }

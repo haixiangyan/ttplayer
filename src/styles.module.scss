@@ -20,7 +20,7 @@ audio::-webkit-media-controls-panel {
 .app {
   display: flex;
   padding: 16px;
-  background: #404264;
+  background: linear-gradient(0, #181929, 10%, #404264, 90%, #181929, 100%, #404264);
   border-radius: 6px;
 
   .playerWrapper {

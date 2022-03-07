@@ -51,7 +51,7 @@ const App: FC = () => {
       if (audioRef.current) {
         const currentTime = audioRef.current.currentTime;
         const minute = Math.floor(currentTime / 60);
-        const seconds = Math.ceil(currentTime % 60);
+        const seconds = Math.floor(currentTime % 60);
         setCurtTime(`${padLeft(minute)}:${padLeft(seconds)}`);
       }
     }, 500);
