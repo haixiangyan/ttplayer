@@ -1,15 +1,11 @@
 // 浮动的小块
 let floats: any = [];
-// 推的高度
-const PUSH_HEIGHT = 0;
 // 高度
 const FLOAT_HEIGHT = 4;
 // 下落高度
 const DROP_DISTANCE = 1;
 // Bar 的 border 宽度
 const BAR_GAP = 2;
-// 高度比例
-const HEIGHT_RATIO = 1;
 
 export const clearFloats = () => floats = [];
 
@@ -41,7 +37,7 @@ export const drawFloats = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) =
     // 默认值
     floats[index] = floats[index] || FLOAT_HEIGHT;
     // 处理当前值
-    const pushHeight = item + FLOAT_HEIGHT + PUSH_HEIGHT;
+    const pushHeight = item + FLOAT_HEIGHT;
     const dropHeight = floats[index] - DROP_DISTANCE;
     // 取最大值
     floats[index] = Math.max(dropHeight, pushHeight);
@@ -51,7 +47,7 @@ export const drawFloats = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) =
   let x = 0;
 
   floats.forEach((floatItem: number) => {
-    const floatHeight = floatItem * HEIGHT_RATIO;
+    const floatHeight = floatItem;
 
     canvasCtx.fillStyle = '#3e47a0';
     canvasCtx.fillRect(x, canvasHeight - floatHeight, barWidth, FLOAT_HEIGHT);
@@ -73,7 +69,7 @@ export const drawBars = (canvasEl: HTMLCanvasElement, dataArray: Uint8Array) => 
   let x = 0;
 
   dataArray.forEach((dataItem) => {
-    const barHeight = dataItem * HEIGHT_RATIO;
+    const barHeight = dataItem;
 
     // 添加渐变色
     const gradient = canvasCtx.createLinearGradient(canvasWidth / 2, canvasHeight / 2, canvasWidth / 2, canvasHeight);
