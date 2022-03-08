@@ -1,17 +1,19 @@
 {
   "files": {
-    "main.css": "/ttplayer/static/css/main.5410d44b.css",
-    "main.js": "/ttplayer/static/js/main.8a8f5fcc.js",
+    "main.css": "/ttplayer/static/css/main.b36e31d6.css",
+    "main.js": "/ttplayer/static/js/main.ff7d746f.js",
     "static/media/new-thang.flac": "/ttplayer/static/media/new-thang.25a5f79376e0d93bcdd2.flac",
     "static/media/guyongzhe.flac": "/ttplayer/static/media/guyongzhe.cb42cb7f327fab7dcc38.flac",
     "static/media/zheshijienameduoren.flac": "/ttplayer/static/media/zheshijienameduoren.c02db09660b4f29b06b2.flac",
     "static/media/dukou.flac": "/ttplayer/static/media/dukou.912f161b068ec6db15fb.flac",
+    "static/media/gao.flac": "/ttplayer/static/media/gao.7be15affb7d2af1f65df.flac",
+    "static/media/kong.flac": "/ttplayer/static/media/kong.73f1d40ddaa536725441.flac",
     "index.html": "/ttplayer/index.html",
-    "main.5410d44b.css.map": "/ttplayer/static/css/main.5410d44b.css.map",
-    "main.8a8f5fcc.js.map": "/ttplayer/static/js/main.8a8f5fcc.js.map"
+    "main.b36e31d6.css.map": "/ttplayer/static/css/main.b36e31d6.css.map",
+    "main.ff7d746f.js.map": "/ttplayer/static/js/main.ff7d746f.js.map"
   },
   "entrypoints": [
-    "static/css/main.5410d44b.css",
-    "static/js/main.8a8f5fcc.js"
+    "static/css/main.b36e31d6.css",
+    "static/js/main.ff7d746f.js"
   ]
 }
