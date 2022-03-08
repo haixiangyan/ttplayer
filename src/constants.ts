@@ -12,19 +12,19 @@ export interface PlayListItem {
 
 export const defaultPlayList: PlayListItem[] = [
   {
-    name: '渡口',
+    name: '蔡琴 - 渡口',
     url: dukou,
   },
   {
-    name: '蛄蛹者',
+    name: '陈奕讯 - 蛄蛹者',
     url: guyongzhe,
   },
   {
-    name: '这世界那么多人',
+    name: '莫文蔚 - 这世界那么多人',
     url: zheshijienameduoren,
   },
   {
-    name: 'New Thang',
+    name: 'Redfoo - New Thang',
     url: newThang,
   },
   {
