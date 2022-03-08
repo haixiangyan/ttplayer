@@ -22,6 +22,9 @@
       margin-bottom: 1px;
       list-style: none;
       cursor: pointer;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
 
       &:hover {
         background: #5f6282;
