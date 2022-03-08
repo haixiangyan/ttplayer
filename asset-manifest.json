@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/ttplayer/static/css/main.b36e31d6.css",
+    "main.css": "/ttplayer/static/css/main.3b1bf18c.css",
     "main.js": "/ttplayer/static/js/main.ff7d746f.js",
     "static/media/new-thang.flac": "/ttplayer/static/media/new-thang.25a5f79376e0d93bcdd2.flac",
     "static/media/guyongzhe.flac": "/ttplayer/static/media/guyongzhe.cb42cb7f327fab7dcc38.flac",
@@ -9,11 +9,11 @@
     "static/media/gao.flac": "/ttplayer/static/media/gao.7be15affb7d2af1f65df.flac",
     "static/media/kong.flac": "/ttplayer/static/media/kong.73f1d40ddaa536725441.flac",
     "index.html": "/ttplayer/index.html",
-    "main.b36e31d6.css.map": "/ttplayer/static/css/main.b36e31d6.css.map",
+    "main.3b1bf18c.css.map": "/ttplayer/static/css/main.3b1bf18c.css.map",
     "main.ff7d746f.js.map": "/ttplayer/static/js/main.ff7d746f.js.map"
   },
   "entrypoints": [
-    "static/css/main.b36e31d6.css",
+    "static/css/main.3b1bf18c.css",
     "static/js/main.ff7d746f.js"
   ]
 }
