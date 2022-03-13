@@ -20,7 +20,10 @@ const App: FC = () => {
     if (audioRef.current) {
       stopVisualize();
       await audioRef.current.play();
-      const stream = (audioRef.current as any).captureStream();
+      // https://stackoverflow.com/a/48623627
+      const stream = navigator.userAgent.indexOf('Firefox') > -1 ?
+        (audioRef.current as any).mozCaptureStream() :
+        (audioRef.current as any).captureStream();
       visualize(stream)
     }
   }
