@@ -38,6 +38,7 @@ const useAudioVisualization = (selector: string, length = 50) => {
     const source = audioCtxRef.current.createMediaStreamSource(stream);
     // 将音频源连接解析器
     source.connect(analyserRef.current);
+    source.connect(audioCtxRef.current.destination);
 
     // 准备数据数组
     analyserRef.current.fftSize = 256;

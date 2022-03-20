@@ -20,7 +20,9 @@ const App: FC = () => {
     if (audioRef.current) {
       stopVisualize();
       await audioRef.current.play();
-      const stream = (audioRef.current as any).captureStream();
+      // https://stackoverflow.com/a/48623627
+      const audioEle = audioRef.current as any
+      const stream = audioEle.mozCaptureStream ? audioEle.mozCaptureStream() : audioEle.captureStream();
       visualize(stream)
     }
   }
