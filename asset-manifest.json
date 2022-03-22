@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/ttplayer/static/css/main.3b1bf18c.css",
-    "main.js": "/ttplayer/static/js/main.ff7d746f.js",
+    "main.css": "/ttplayer/static/css/main.15b08bd0.css",
+    "main.js": "/ttplayer/static/js/main.77f7990b.js",
     "static/media/new-thang.flac": "/ttplayer/static/media/new-thang.25a5f79376e0d93bcdd2.flac",
     "static/media/guyongzhe.flac": "/ttplayer/static/media/guyongzhe.cb42cb7f327fab7dcc38.flac",
     "static/media/zheshijienameduoren.flac": "/ttplayer/static/media/zheshijienameduoren.c02db09660b4f29b06b2.flac",
@@ -9,11 +9,11 @@
     "static/media/gao.flac": "/ttplayer/static/media/gao.7be15affb7d2af1f65df.flac",
     "static/media/kong.flac": "/ttplayer/static/media/kong.73f1d40ddaa536725441.flac",
     "index.html": "/ttplayer/index.html",
-    "main.3b1bf18c.css.map": "/ttplayer/static/css/main.3b1bf18c.css.map",
-    "main.ff7d746f.js.map": "/ttplayer/static/js/main.ff7d746f.js.map"
+    "main.15b08bd0.css.map": "/ttplayer/static/css/main.15b08bd0.css.map",
+    "main.77f7990b.js.map": "/ttplayer/static/js/main.77f7990b.js.map"
   },
   "entrypoints": [
-    "static/css/main.3b1bf18c.css",
-    "static/js/main.ff7d746f.js"
+    "static/css/main.15b08bd0.css",
+    "static/js/main.77f7990b.js"
   ]
 }
