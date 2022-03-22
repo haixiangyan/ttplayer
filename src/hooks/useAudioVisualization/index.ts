@@ -37,8 +37,15 @@ const useAudioVisualization = (selector: string, length = 50) => {
     // 获取音频源
     const source = audioCtxRef.current.createMediaStreamSource(stream);
     // 将音频源连接解析器
-    // 不能 connect 到 destination，否则会有回音
     source.connect(analyserRef.current);
+
+    // Chrome 不能 connect 到 destination，否则会有回音
+    // Firefox 需要，否则无声音
+    // 通过 feature detection 判断 Firefox，参考 https://stackoverflow.com/a/9851769
+    // @ts-ignore
+    if (typeof InstallTrigger !== 'undefined') {
+      source.connect(audioCtxRef.current.destination);
+    }
 
     // 准备数据数组
     analyserRef.current.fftSize = 256;
